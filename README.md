@@ -30,7 +30,7 @@ Add the dependency to your app's `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.shahnexus42/pdf-viewer-16kb:1.0.0'
+    implementation 'com.github.shahnexus42:pdf-viewer-16kb:1.0.0'
 }
 ```
 
