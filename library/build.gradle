@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
@@ -33,4 +34,42 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.Crypsis-dev'
+                artifactId = 'pdf-viewer-16kb'
+                version = '1.0.0'
+
+                artifact bundleReleaseAar
+
+                pom {
+                    name = 'ShahNexus PDF Viewer'
+                    description = 'Android PDF viewer library compliant with 16KB page size for Android 15+'
+                    url = 'https://github.com/shahnexus42/pdf-viewer-16kb'
+                    licenses {
+                        license {
+                            name = 'The MIT License (MIT)'
+                            url = 'https://opensource.org/licenses/MIT'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'shahnexus42'
+                            name = 'ShahNexus'
+                            email = 'your.email@example.com' // Replace with actual email
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git@github.com:shahnexus42/pdf-viewer-16kb.git'
+                        developerConnection = 'scm:git@github.com:shahnexus42/pdf-viewer-16kb.git'
+                        url = 'https://github.com/shahnexus42/pdf-viewer-16kb'
+                    }
+                }
+            }
+        }
+    }
 }
